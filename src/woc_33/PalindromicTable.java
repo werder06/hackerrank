@@ -12,7 +12,7 @@ import java.util.PriorityQueue;
  */
 public class PalindromicTable {
 
-  private static boolean onlyZeroFailFast = false;
+  private static boolean toManyZeroFailFast = false;
 
   private static class Square implements Comparable<Square> {
 
@@ -70,8 +70,8 @@ public class PalindromicTable {
       }
       summ += anA;
     }
-    if (a[0] == summ) {
-      onlyZeroFailFast = true;
+    if (summ - a[0] <= 1) {
+      toManyZeroFailFast = true;
     }
     return (count == 0 || count == 1) && (summ - a[0] > 1 || a[0] == 1);
   }
@@ -89,8 +89,8 @@ public class PalindromicTable {
   private static int[] checkAllRectanglesWithThisSize(int[][] a, int k, int l, int n, int m) {
     for (int i = 0; i <= n - k; i++) {
       for (int j = 0; j <= m - l; j++) {
-        boolean isPalendrome = checkRectangleFromIJ(a, i, j, i + k, l + j);
-        if (isPalendrome) {
+        boolean isPalindrome = checkRectangleFromIJ(a, i, j, i + k, l + j);
+        if (isPalindrome) {
           return new int[]{i, j, i + k - 1, j + l - 1};
         }
       }
@@ -117,7 +117,7 @@ public class PalindromicTable {
       int row = square.row;
       int column = square.column;
       int[] resp = checkAllRectanglesWithThisSize(a, row, column, n, m);
-      if (square.row == n && square.column == m && onlyZeroFailFast) {
+      if (square.row == n && square.column == m && toManyZeroFailFast) {
         System.out.println(1);
         System.out.println("0 0 0 0");
         return;
