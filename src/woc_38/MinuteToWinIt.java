@@ -4,6 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Problem statement:
+ * <p>
+ * https://www.hackerrank.com/contests/w38/challenges/minute-to-win-it
+ */
 public class MinuteToWinIt {
 
   private static int minuteToWinIt(int[] a, int k) {

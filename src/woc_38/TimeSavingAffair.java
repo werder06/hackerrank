@@ -7,6 +7,12 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
+/**
+ * Problem statement:
+ * <p>
+ * https://www.hackerrank.com/contests/w38/challenges/a-time-saving-affair
+ */
+
 public class TimeSavingAffair {
   private static Junction[] JUNCTIONS;
   private static int N;
